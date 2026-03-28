@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { applyPreset, PRESET_NAMES } from '../src/presets';
 import { validateRenderOptions } from '../src/validation/validate';
 import { renderSVG } from '../src/svg/renderer';
-import { generateQR } from '@qr-gen/core';
+import { generateQR } from '@qr-kit/core';
 
 const qr = generateQR({ data: 'TEST' });
 

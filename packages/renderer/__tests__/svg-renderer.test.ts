@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { renderSVG } from '../src/svg/renderer';
 import type { RenderOptions } from '../src/types';
-import { MODULE_TYPE } from '@qr-gen/core';
+import { MODULE_TYPE } from '@qr-kit/core';
 
 describe('SVG Renderer', () => {
   const simpleMatrix = [
@@ -222,7 +222,7 @@ describe('SVG Renderer', () => {
   describe('circle finder patterns', () => {
     // Use a real QR generation to get proper moduleTypes
     it('produces 9 circle elements (3 concentric circles x 3 finders)', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -235,7 +235,7 @@ describe('SVG Renderer', () => {
     });
 
     it('circle radii are proportional to moduleSize (3.5, 2.5, 1.5)', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const size = 256;
       const matrixSize = qr.matrix.length;
@@ -259,7 +259,7 @@ describe('SVG Renderer', () => {
     });
 
     it('does not render individual finder module rects when finderShape=circle', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const svgCircle = renderSVG(qr.matrix, {
         size: 256,
@@ -280,7 +280,7 @@ describe('SVG Renderer', () => {
     });
 
     it('uses finderColor for circle finders when specified', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -294,7 +294,7 @@ describe('SVG Renderer', () => {
     });
 
     it('composes with diamond module shape', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -310,7 +310,7 @@ describe('SVG Renderer', () => {
 
   describe('overlay image', () => {
     it('renders <image> element when overlayImage is provided', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -323,7 +323,7 @@ describe('SVG Renderer', () => {
     });
 
     it('applies default opacity of 0.3', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -335,7 +335,7 @@ describe('SVG Renderer', () => {
     });
 
     it('applies custom opacity', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -347,7 +347,7 @@ describe('SVG Renderer', () => {
     });
 
     it('renders image at full QR size with preserveAspectRatio', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -361,7 +361,7 @@ describe('SVG Renderer', () => {
     });
 
     it('renders finder background rects for scannability', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -378,7 +378,7 @@ describe('SVG Renderer', () => {
     });
 
     it('uses finderBackgroundColor when specified', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -390,7 +390,7 @@ describe('SVG Renderer', () => {
     });
 
     it('renders circular finder backgrounds when finderShape is circle', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -406,7 +406,7 @@ describe('SVG Renderer', () => {
     });
 
     it('coexists with logo', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -423,7 +423,7 @@ describe('SVG Renderer', () => {
     });
 
     it('image appears after bg rect but before modules', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,

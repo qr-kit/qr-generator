@@ -8,8 +8,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@qr-gen/core': path.resolve(__dirname, '../core/src/index.ts'),
-      '@qr-gen/vanilla': path.resolve(__dirname, '../renderer/src/index.ts'),
+      '@qr-kit/core': path.resolve(__dirname, '../core/src/index.ts'),
+      '@qr-kit/dom': path.resolve(__dirname, '../renderer/src/index.ts'),
     },
   },
 });

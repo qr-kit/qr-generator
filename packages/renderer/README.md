@@ -1,4 +1,4 @@
-# @qr-gen/vanilla
+# @qr-kit/dom
 
 Zero-dependency QR code renderer with multi-format output — SVG, PNG, BMP, Canvas, and Data URI. Built from scratch with custom PNG/BMP encoders (no native dependencies).
 
@@ -7,15 +7,15 @@ Zero-dependency QR code renderer with multi-format output — SVG, PNG, BMP, Can
 ## Install
 
 ```bash
-npm install @qr-gen/vanilla
+npm install @qr-kit/dom
 ```
 
-Automatically installs `@qr-gen/core`.
+Automatically installs `@qr-kit/core`.
 
 ## Quick Start
 
 ```ts
-import { createQR } from '@qr-gen/vanilla';
+import { createQR } from '@qr-kit/dom';
 
 const result = createQR('https://example.com', { size: 256 });
 document.getElementById('qr').innerHTML = result.data;
@@ -24,7 +24,7 @@ document.getElementById('qr').innerHTML = result.data;
 ## Output Formats
 
 ```ts
-import { createQR } from '@qr-gen/vanilla';
+import { createQR } from '@qr-kit/dom';
 
 // SVG (default)
 const svg = createQR('hello', { size: 256 });
@@ -66,7 +66,7 @@ result.download({ filename: 'my-qr.svg', format: 'svg' });
 ## SVG-Only Shortcut
 
 ```ts
-import { createQRSVG } from '@qr-gen/vanilla';
+import { createQRSVG } from '@qr-kit/dom';
 
 const { svg, version, errorCorrection, validation } = createQRSVG(
   'https://example.com',
@@ -77,8 +77,8 @@ const { svg, version, errorCorrection, validation } = createQRSVG(
 ## Low-Level Renderers
 
 ```ts
-import { generateQR } from '@qr-gen/core';
-import { renderSVG, renderPNG, renderBMP, renderCanvas, renderDataURI } from '@qr-gen/vanilla';
+import { generateQR } from '@qr-kit/core';
+import { renderSVG, renderPNG, renderBMP, renderCanvas, renderDataURI } from '@qr-kit/dom';
 
 const qr = generateQR({ data: 'https://example.com' });
 
@@ -199,7 +199,7 @@ createQR('https://example.com', {
 ## Presets
 
 ```ts
-import { applyPreset, PRESET_NAMES } from '@qr-gen/vanilla';
+import { applyPreset, PRESET_NAMES } from '@qr-kit/dom';
 
 // Available: 'default' | 'minimal' | 'rounded' | 'dots' | 'sharp' | 'elegant'
 const opts = applyPreset('elegant');
@@ -212,7 +212,7 @@ const custom = applyPreset('dots', { fgColor: '#e94560' });
 ## File Download (Browser)
 
 ```ts
-import { createQR, downloadQR } from '@qr-gen/vanilla';
+import { createQR, downloadQR } from '@qr-kit/dom';
 
 const result = createQR('https://example.com', { size: 512 });
 result.download({ filename: 'my-qr.png', format: 'png' });
@@ -224,7 +224,7 @@ downloadQR(result, { filename: 'my-qr.svg', format: 'svg' });
 ## Save to File (Node.js)
 
 ```ts
-import { createQR } from '@qr-gen/vanilla';
+import { createQR } from '@qr-kit/dom';
 import { writeFileSync } from 'fs';
 
 writeFileSync('qr.svg', createQR('https://example.com', { size: 512 }).data);
@@ -236,7 +236,7 @@ writeFileSync('qr.png', createQR('https://example.com', { size: 512, format: 'pn
 ### Render Options Validation
 
 ```ts
-import { validateRenderOptions } from '@qr-gen/vanilla';
+import { validateRenderOptions } from '@qr-kit/dom';
 
 const result = validateRenderOptions(
   { size: 256, fgColor: '#777777', bgColor: '#888888' },
@@ -250,7 +250,7 @@ result.issues;   // [{ code: 'CONTRAST_TOO_LOW', severity: 'error', message: '..
 ### Scannability Scoring
 
 ```ts
-import { computeScannability } from '@qr-gen/vanilla';
+import { computeScannability } from '@qr-kit/dom';
 
 const { score, breakdown } = computeScannability({
   errorCorrection: 'H',
@@ -266,8 +266,8 @@ const { score, breakdown } = computeScannability({
 ### Structural Integrity Verification
 
 ```ts
-import { generateQR } from '@qr-gen/core';
-import { verifyQRIntegrity } from '@qr-gen/vanilla';
+import { generateQR } from '@qr-kit/core';
+import { verifyQRIntegrity } from '@qr-kit/dom';
 
 const qr = generateQR({ data: 'hello' });
 const result = verifyQRIntegrity(qr.matrix, 'hello', {
@@ -279,7 +279,7 @@ const result = verifyQRIntegrity(qr.matrix, 'hello', {
 ### Contrast Ratio
 
 ```ts
-import { contrastRatio } from '@qr-gen/vanilla';
+import { contrastRatio } from '@qr-kit/dom';
 
 contrastRatio('#000000', '#ffffff'); // 21
 ```
@@ -323,6 +323,13 @@ contrastRatio('#000000', '#ffffff'); // 21
 | `MODULE_TOO_SMALL` | warning | Module < 3px with non-square shape |
 | `OVERLAY_REQUIRES_HIGH_EC` | warning | Overlay present but EC not H |
 | `OVERLAY_HIGH_OPACITY` | warning | Overlay opacity too high for scanning |
+
+## Related Packages
+
+| Package | Description |
+|---------|-------------|
+| [`@qr-kit/core`](https://www.npmjs.com/package/@qr-kit/core) | QR generation engine (installed automatically) |
+| [`@qr-kit/react`](https://www.npmjs.com/package/@qr-kit/react) | React component and hook |
 
 ## License
 

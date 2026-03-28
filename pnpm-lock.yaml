@@ -28,10 +28,10 @@ importers:
 
   packages/react:
     dependencies:
-      '@qr-gen/core':
+      '@qr-kit/core':
         specifier: workspace:*
         version: link:../core
-      '@qr-gen/vanilla':
+      '@qr-kit/dom':
         specifier: workspace:*
         version: link:../renderer
     devDependencies:
@@ -62,7 +62,7 @@ importers:
 
   packages/renderer:
     dependencies:
-      '@qr-gen/core':
+      '@qr-kit/core':
         specifier: workspace:*
         version: link:../core
 

@@ -1,4 +1,4 @@
-# @qr-gen/react
+# @qr-kit/react
 
 React component and hook for generating QR codes. Zero-dependency QR engine with custom rendering — shapes, gradients, logos, overlays, frames, and finder pattern customization.
 
@@ -7,15 +7,15 @@ React component and hook for generating QR codes. Zero-dependency QR engine with
 ## Install
 
 ```bash
-npm install @qr-gen/react
+npm install @qr-kit/react
 ```
 
-Requires React 18+. Automatically installs `@qr-gen/core` and `@qr-gen/vanilla`.
+Requires React 18+. Automatically installs `@qr-kit/core` and `@qr-kit/dom`.
 
 ## Quick Start
 
 ```tsx
-import { QRCode } from '@qr-gen/react';
+import { QRCode } from '@qr-kit/react';
 
 function App() {
   return <QRCode value="https://example.com" size={256} />;
@@ -152,8 +152,8 @@ Access download/export methods via ref:
 
 ```tsx
 import { useRef } from 'react';
-import { QRCode } from '@qr-gen/react';
-import type { QRCodeHandle } from '@qr-gen/react';
+import { QRCode } from '@qr-kit/react';
+import type { QRCodeHandle } from '@qr-kit/react';
 
 function App() {
   const qrRef = useRef<QRCodeHandle>(null);
@@ -183,7 +183,7 @@ function App() {
 For custom rendering (Canvas, WebGL, etc.), use the hook to get the raw QR matrix:
 
 ```tsx
-import { useQRCode } from '@qr-gen/react';
+import { useQRCode } from '@qr-kit/react';
 
 function CustomQR() {
   const { matrix, moduleTypes, version, size, errorCorrection } = useQRCode({
@@ -234,6 +234,13 @@ function CustomQR() {
 | `alt` | `string` | `'QR Code'` | Accessible label (aria-label) |
 | `className` | `string` | - | CSS class on wrapper div |
 | `style` | `CSSProperties` | - | Inline styles on wrapper div |
+
+## Related Packages
+
+| Package | Description |
+|---------|-------------|
+| [`@qr-kit/core`](https://www.npmjs.com/package/@qr-kit/core) | QR generation engine (installed automatically) |
+| [`@qr-kit/dom`](https://www.npmjs.com/package/@qr-kit/dom) | Vanilla JS renderer (installed automatically) |
 
 ## License
 

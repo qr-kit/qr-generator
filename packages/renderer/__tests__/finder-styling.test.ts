@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { renderSVG } from '../src/svg/renderer';
-import { generateQR } from '@qr-gen/core';
+import { generateQR } from '@qr-kit/core';
 
 // Generate a real QR to get proper moduleTypes
 const qr = generateQR({ data: 'TEST' });

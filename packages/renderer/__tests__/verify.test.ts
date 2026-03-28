@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { verifyQRIntegrity } from '../src/validation/verify';
-import { generateQR } from '@qr-gen/core';
+import { generateQR } from '@qr-kit/core';
 
 describe('QR Integrity Verification', () => {
   describe('valid QR codes', () => {

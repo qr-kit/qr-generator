@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { renderSVG } from '../src/svg/renderer';
 import { rasterizeMatrix } from '../src/raster/rasterize';
-import { generateQR } from '@qr-gen/core';
+import { generateQR } from '@qr-kit/core';
 
 const qr = generateQR({ data: 'TEST' });
 const { matrix, moduleTypes } = qr;

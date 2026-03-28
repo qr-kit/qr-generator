@@ -1,4 +1,4 @@
-import type { ErrorCorrectionLevel } from '@qr-gen/core';
+import type { ErrorCorrectionLevel } from '@qr-kit/core';
 import type { ColorConfig, ModuleShape, LogoConfig, OverlayImageConfig, GradientConfig } from '../types';
 import { contrastRatio } from './contrast';
 

@@ -1,5 +1,5 @@
 import type { RenderOptions, ValidationIssue, ValidationResult } from '../types';
-import type { ErrorCorrectionLevel } from '@qr-gen/core';
+import type { ErrorCorrectionLevel } from '@qr-kit/core';
 import { contrastRatio } from './contrast';
 
 const HEX_RE = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;

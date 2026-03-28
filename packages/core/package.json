@@ -1,6 +1,7 @@
 {
-  "name": "@qr-gen/core",
-  "version": "0.0.1",
+  "name": "@qr-kit/core",
+  "version": "1.0.1",
+  "description": "Zero-dependency QR code generation engine with ISO/IEC 18004 compliance — encoding, Reed-Solomon error correction, and matrix construction",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -14,11 +15,39 @@
   },
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest"
+  },
+  "keywords": [
+    "qr",
+    "qr-code",
+    "qrcode",
+    "qr-kiterator",
+    "barcode",
+    "encoding",
+    "reed-solomon",
+    "iso-18004",
+    "zero-dependency",
+    "wifi-qr",
+    "vcard-qr"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qr-kit/qr-generator.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/qr-kit/qr-generator/tree/main/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/qr-kit/qr-generator/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

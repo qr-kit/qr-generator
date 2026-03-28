@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { renderSVG } from '../src/svg/renderer';
 import { createQR } from '../src/create-qr';
-import { MODULE_TYPE } from '@qr-gen/core';
+import { MODULE_TYPE } from '@qr-kit/core';
 
 const simpleMatrix = [
   [1, 0, 1],
@@ -95,7 +95,7 @@ describe('Custom Module Renderer', () => {
     });
 
     it('circle finders: callback NOT called for finder modules', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const types: number[] = [];
       renderSVG(qr.matrix, {

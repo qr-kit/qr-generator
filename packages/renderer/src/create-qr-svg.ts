@@ -1,5 +1,5 @@
-import { generateQR } from '@qr-gen/core';
-import type { ErrorCorrectionLevel } from '@qr-gen/core';
+import { generateQR } from '@qr-kit/core';
+import type { ErrorCorrectionLevel } from '@qr-kit/core';
 import type { RenderOptions, ValidationResult } from './types';
 import { renderSVG } from './svg/renderer';
 import { validateRenderOptions } from './validation/validate';

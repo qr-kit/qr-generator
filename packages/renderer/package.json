@@ -1,6 +1,7 @@
 {
-  "name": "@qr-gen/vanilla",
-  "version": "0.0.1",
+  "name": "@qr-kit/dom",
+  "version": "1.0.1",
+  "description": "Zero-dependency QR code renderer with multi-format output — SVG, PNG, BMP, Canvas, and Data URI with custom encoders",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -13,13 +14,44 @@
     }
   },
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@qr-gen/core": "workspace:*"
+    "@qr-kit/core": "workspace:*"
+  },
+  "keywords": [
+    "qr",
+    "qr-code",
+    "qrcode",
+    "qr-renderer",
+    "svg",
+    "png",
+    "bmp",
+    "canvas",
+    "data-uri",
+    "zero-dependency",
+    "qr-styling",
+    "qr-logo"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qr-kit/qr-generator.git",
+    "directory": "packages/renderer"
+  },
+  "homepage": "https://github.com/qr-kit/qr-generator/tree/main/packages/renderer#readme",
+  "bugs": {
+    "url": "https://github.com/qr-kit/qr-generator/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

@@ -8,21 +8,21 @@ A production-grade, zero-dependency QR code library built from scratch. ISO/IEC 
 
 | Package | Description | Size (gzip) |
 |---------|-------------|-------------|
-| `@qr-gen/core` | QR generation engine — encoding, Reed-Solomon EC, matrix construction | 7.7 KB |
-| `@qr-gen/vanilla` | Multi-format renderer — SVG, PNG, BMP, Canvas, Data URI | 5.5 KB |
-| `@qr-gen/react` | React component + hook | 0.5 KB |
+| `@qr-kit/core` | QR generation engine — encoding, Reed-Solomon EC, matrix construction | 7.7 KB |
+| `@qr-kit/dom` | Multi-format renderer — SVG, PNG, BMP, Canvas, Data URI | 5.5 KB |
+| `@qr-kit/react` | React component + hook | 0.5 KB |
 
 ## Install
 
 ```bash
 # Plain JavaScript / Node.js
-npm install @qr-gen/vanilla
+npm install @qr-kit/dom
 
 # React
-npm install @qr-gen/react
+npm install @qr-kit/react
 ```
 
-Both install `@qr-gen/core` automatically.
+Both install `@qr-kit/core` automatically.
 
 ---
 
@@ -31,7 +31,7 @@ Both install `@qr-gen/core` automatically.
 ### Quick Start
 
 ```ts
-import { createQR } from '@qr-gen/vanilla';
+import { createQR } from '@qr-kit/dom';
 
 // Generate a QR code as SVG string
 const result = createQR('https://example.com', { size: 256 });
@@ -41,7 +41,7 @@ document.getElementById('qr').innerHTML = result.data;
 ### Output Formats
 
 ```ts
-import { createQR } from '@qr-gen/vanilla';
+import { createQR } from '@qr-kit/dom';
 
 // SVG (default)
 const svg = createQR('hello', { size: 256 });
@@ -62,11 +62,11 @@ const uri = createQR('hello', { size: 256, format: 'data-uri' });
 
 ### Low-Level Renderers
 
-For more control, use the individual render functions with a matrix from `@qr-gen/core`:
+For more control, use the individual render functions with a matrix from `@qr-kit/core`:
 
 ```ts
-import { generateQR } from '@qr-gen/core';
-import { renderSVG, renderPNG, renderBMP, renderCanvas } from '@qr-gen/vanilla';
+import { generateQR } from '@qr-kit/core';
+import { renderSVG, renderPNG, renderBMP, renderCanvas } from '@qr-kit/dom';
 
 const qr = generateQR({ data: 'https://example.com' });
 
@@ -87,7 +87,7 @@ renderCanvas(qr.matrix, { size: 256 }, canvas);
 ### Styling
 
 ```ts
-import { createQR } from '@qr-gen/vanilla';
+import { createQR } from '@qr-kit/dom';
 
 const result = createQR('https://example.com', {
   size: 300,
@@ -140,7 +140,7 @@ const result = createQR('https://example.com', {
 ### Scannability Scoring
 
 ```ts
-import { computeScannability } from '@qr-gen/vanilla';
+import { computeScannability } from '@qr-kit/dom';
 
 const score = computeScannability({
   errorCorrection: 'H',
@@ -158,7 +158,7 @@ console.log(score.breakdown);  // { errorCorrection, contrast, logoImpact, modul
 ### Validation
 
 ```ts
-import { validateRenderOptions } from '@qr-gen/vanilla';
+import { validateRenderOptions } from '@qr-kit/dom';
 
 const result = validateRenderOptions(
   { size: 256, fgColor: '#777777', bgColor: '#888888' },
@@ -172,7 +172,7 @@ console.log(result.issues);  // [{ code: 'CONTRAST_TOO_LOW', severity: 'error', 
 ### Saving to File (Node.js)
 
 ```ts
-import { createQR } from '@qr-gen/vanilla';
+import { createQR } from '@qr-kit/dom';
 import { writeFileSync } from 'fs';
 
 // Save as SVG
@@ -191,7 +191,7 @@ writeFileSync('qr.png', png.data);
 ### Quick Start
 
 ```tsx
-import { QRCode } from '@qr-gen/react';
+import { QRCode } from '@qr-kit/react';
 
 function App() {
   return <QRCode value="https://example.com" size={256} />;
@@ -226,7 +226,7 @@ function App() {
 For custom rendering, use the hook to access the raw QR matrix:
 
 ```tsx
-import { useQRCode } from '@qr-gen/react';
+import { useQRCode } from '@qr-kit/react';
 
 function CustomQR() {
   const { matrix, moduleTypes, version, size } = useQRCode({
@@ -282,7 +282,7 @@ function CustomQR() {
 ## Architecture
 
 ```
-@qr-gen/core          @qr-gen/vanilla           @qr-gen/react
+@qr-kit/core          @qr-kit/dom           @qr-kit/react
 ┌──────────────┐      ┌─────────────────────┐    ┌──────────────┐
 │ Encoding     │      │ SVG Renderer        │    │ <QRCode />   │
 │ Reed-Solomon │─────▶│ PNG Encoder (custom) │◀───│ useQRCode()  │

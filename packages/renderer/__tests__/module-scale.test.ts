@@ -37,7 +37,7 @@ describe('Module Scale / Gap Control', () => {
     });
 
     it('finder patterns are NOT scaled', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const size = 256;
       const margin = 4;

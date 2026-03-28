@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { rasterizeMatrix } from '../src/raster/rasterize';
 import type { RenderOptions } from '../src/types';
-import { MODULE_TYPE } from '@qr-gen/core';
+import { MODULE_TYPE } from '@qr-kit/core';
 
 /**
  * Helper: create a simple matrix of given size with all cells dark (1).
@@ -358,7 +358,7 @@ describe('rasterizeMatrix', () => {
 
   describe('circle finder patterns', () => {
     it('renders circle finders: center of finder is foreground color', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const size = 512;
       const margin = 4;
@@ -385,7 +385,7 @@ describe('rasterizeMatrix', () => {
     });
 
     it('renders circle finders: middle ring is background color', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const size = 512;
       const margin = 4;
@@ -414,7 +414,7 @@ describe('rasterizeMatrix', () => {
     });
 
     it('circle finders with finderColor uses custom color', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const size = 512;
       const margin = 4;

@@ -28,7 +28,7 @@ describe('Transparent Background', () => {
     });
 
     it('transparent bg + circle finders: gap ring uses white', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -42,7 +42,7 @@ describe('Transparent Background', () => {
     });
 
     it('transparent bg + overlay: finder bg defaults to white', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'H' });
       const svg = renderSVG(qr.matrix, {
         size: 256,
@@ -96,7 +96,7 @@ describe('Transparent Background', () => {
     });
 
     it('transparent bg + circle finders: gap ring is white', () => {
-      const { generateQR } = require('@qr-gen/core');
+      const { generateQR } = require('@qr-kit/core');
       const qr = generateQR({ data: 'test', errorCorrection: 'M' });
       const size = 512;
       const margin = 4;

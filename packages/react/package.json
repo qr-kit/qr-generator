@@ -1,6 +1,7 @@
 {
-  "name": "@qr-gen/react",
-  "version": "0.0.1",
+  "name": "@qr-kit/react",
+  "version": "1.0.1",
+  "description": "React component and hook for QR code generation — shapes, gradients, logos, overlays, frames, and finder pattern customization",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -14,7 +15,9 @@
   },
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsup",
@@ -22,8 +25,8 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@qr-gen/core": "workspace:*",
-    "@qr-gen/vanilla": "workspace:*"
+    "@qr-kit/core": "workspace:*",
+    "@qr-kit/dom": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -38,5 +41,30 @@
     "jsdom": "^29.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+  },
+  "keywords": [
+    "qr",
+    "qr-code",
+    "qrcode",
+    "react",
+    "react-qr",
+    "qr-component",
+    "qr-hook",
+    "svg",
+    "qr-styling",
+    "qr-logo"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qr-kit/qr-generator.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/qr-kit/qr-generator/tree/main/packages/react#readme",
+  "bugs": {
+    "url": "https://github.com/qr-kit/qr-generator/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
